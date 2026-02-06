@@ -1,0 +1,1651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jayveer Trader's - Premium Tiles, Granite & Marble Showroom</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ========== Global Styles ========== */
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #e74c3c;
+            --accent-color: #3498db;
+            --light-color: #f8f9fa;
+            --dark-color: #212529;
+            --text-color: #333;
+            --text-light: #6c757d;
+            --white: #ffffff;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: var(--text-color);
+            padding-top: 80px;
+            line-height: 1.6;
+        }
+
+        /* ========== Loading Animation ========== */
+        .loader-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--primary-color);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            opacity: 1;
+            visibility: visible;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        .loader-wrapper.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader {
+            width: 48px;
+            height: 48px;
+            border: 5px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            border-top-color: var(--secondary-color);
+            animation: spin 1s ease-in-out infinite;
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .loader-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .loader-brand {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            animation: fadeIn 0.5s ease-out forwards;
+            color: white;
+        }
+
+        .loader-tagline {
+            font-size: 1rem;
+            letter-spacing: 2px;
+            opacity: 0.9;
+            animation: fadeIn 1.0s ease-out forwards;
+            color: white;
+        }
+
+        @keyframes spin {
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ========== Enhanced Header ========== */
+        .main-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1030;
+            transition: var(--transition);
+            background: rgba(44, 62, 80, 0.97);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            box-shadow: 0 2px 30px rgba(0, 0, 0, 0.1);
+            padding: 12px 0;
+        }
+
+        .header-scrolled {
+            padding: 8px 0;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Logo specific styling */
+        .logo-img {
+            height: 40px;
+            width: auto;
+            transition: var(--transition);
+        }
+
+        .brand-text {
+            display: inline-block;
+            line-height: 1.1;
+        }
+
+        .brand-name {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.3rem;
+            display: block;
+            color: var(--white);
+        }
+
+        .tagline {
+            font-size: 0.6rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+            color: rgba(255, 255, 255, 0.85);
+            text-transform: uppercase;
+            display: block;
+        }
+
+        .navbar-brand:hover .logo-img {
+            transform: scale(1.05);
+        }
+
+        .navbar-nav .nav-item {
+            margin: 0 4px;
+        }
+
+        .navbar-nav .nav-link {
+            color: var(--white) !important;
+            font-weight: 500;
+            padding: 8px 16px !important;
+            position: relative;
+            transition: var(--transition);
+            border-radius: 4px;
+            font-size: 0.95rem;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: var(--secondary-color) !important;
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .navbar-nav .nav-item.active .nav-link {
+            color: var(--secondary-color) !important;
+            font-weight: 600;
+        }
+
+        .header-cta {
+            display: flex;
+            align-items: center;
+            margin-left: 20px;
+        }
+
+        .phone-link {
+            display: flex;
+            align-items: center;
+            color: var(--white);
+            text-decoration: none;
+            transition: var(--transition);
+            margin-right: 15px;
+        }
+
+        .phone-link:hover {
+            color: var(--secondary-color);
+            transform: translateY(-1px);
+        }
+
+        .phone-link i {
+            margin-right: 8px;
+            font-size: 1.1rem;
+        }
+
+        /* ========== Hero Sections ========== */
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('images/bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            height: 100vh;
+            min-height: 650px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            color: var(--white);
+            text-align: center;
+        }
+
+        .about-hero, .location-hero, .products-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('images/bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            height: 60vh;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            color: var(--white);
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .location-hero {
+            height: 50vh;
+            min-height: 400px;
+        }
+
+        .hero-content, .about-hero-content, .location-hero-content, .products-hero-content {
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-section h1, .about-hero h1, .location-hero h1, .products-hero h1 {
+            font-size: 3.8rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+        }
+
+        .hero-section .lead, .about-hero .lead, .location-hero .lead, .products-hero .lead {
+            font-size: 1.5rem;
+            margin-bottom: 2.5rem;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #f8f8f8;
+            letter-spacing: 1px;
+        }
+
+        /* ========== Section Styling ========== */
+        .section {
+            padding: 6rem 0;
+        }
+
+        .section-title {
+            position: relative;
+            margin-bottom: 3.5rem;
+            text-align: center;
+            font-weight: 700;
+            color: var(--dark-color);
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: var(--secondary-color);
+            bottom: -18px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .bg-light {
+            background-color: var(--light-color) !important;
+        }
+
+        /* ========== About Content ========== */
+        .showroom-img {
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .showroom-img:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        /* ========== Values Section ========== */
+        .value-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            height: 100%;
+            text-align: center;
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .value-icon {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .value-card:hover .value-icon {
+            transform: scale(1.1);
+        }
+
+        /* ========== Stats Section ========== */
+        .stats-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), 
+                        url('images/stats-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: var(--white);
+            padding: 5rem 0;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        /* ========== Product Cards ========== */
+        .product-card {
+            transition: var(--transition);
+            margin-bottom: 30px;
+            border: none;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            background: var(--white);
+            height: 100%;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .product-img-container {
+            overflow: hidden;
+            height: 250px;
+        }
+
+        .product-img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover .product-img {
+            transform: scale(1.08);
+        }
+
+        .card-body {
+            padding: 1.8rem;
+        }
+
+        .card-title {
+            font-weight: 700;
+            color: var(--dark-color);
+            margin-bottom: 0.75rem;
+            font-size: 1.25rem;
+        }
+
+        .product-type {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-price {
+            font-weight: 700;
+            color: var(--secondary-color);
+            font-size: 1.2rem;
+            margin: 1rem 0;
+        }
+
+        .price-tag {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+        }
+
+        /* ========== Collection Titles ========== */
+        .collection-title {
+            position: relative;
+            margin-bottom: 2.5rem;
+            padding-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .collection-title:after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 3px;
+            background: var(--secondary-color);
+            bottom: 0;
+            left: 0;
+        }
+
+        /* ========== Location Map ========== */
+        .location-card {
+            border: none;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .location-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .map-container {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            height: 100%;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            min-height: 400px;
+            border: none;
+        }
+
+        /* ========== Team Section ========== */
+        .team-member {
+            text-align: center;
+            margin-bottom: 3rem;
+            transition: var(--transition);
+        }
+
+        .team-img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid var(--white);
+            box-shadow: var(--shadow);
+            margin-bottom: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .team-member:hover {
+            transform: translateY(-5px);
+        }
+
+        .team-member:hover .team-img {
+            transform: scale(1.05);
+            border-color: var(--secondary-color);
+        }
+
+        /* ========== Button Styles ========== */
+        .btn {
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            border: none;
+            position: relative;
+            overflow: hidden;
+            font-size: 0.95rem;
+        }
+
+        .btn-primary {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            box-shadow: 0 4px 20px rgba(231, 76, 60, 0.4);
+        }
+
+        .btn-primary:hover {
+            background-color: #c0392b;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(231, 76, 60, 0.6);
+        }
+
+        .btn-outline-light {
+            border: 2px solid var(--white);
+            color: var(--white);
+            background: transparent;
+        }
+
+        .btn-outline-light:hover {
+            background-color: var(--white);
+            color: var(--dark-color);
+        }
+
+        .btn-location {
+            background-color: var(--primary-color);
+            color: white;
+            border: 2px solid var(--primary-color);
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(44, 62, 80, 0.2);
+            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-location:hover {
+            background-color: transparent;
+            color: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(44, 62, 80, 0.3);
+        }
+
+        /* ========== Notification Styles ========== */
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 20px;
+            border-radius: 8px;
+            color: white;
+            z-index: 9999;
+            opacity: 0;
+            transform: translateX(100px);
+            transition: all 0.3s ease;
+            max-width: 350px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .notification.show {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .notification.success {
+            background-color: #28a745;
+        }
+
+        .notification.error {
+            background-color: #dc3545;
+        }
+
+        .notification.warning {
+            background-color: #ffc107;
+            color: #212529;
+        }
+
+        .notification.info {
+            background-color: #17a2b8;
+        }
+
+        /* ========== Call to Action ========== */
+        .cta-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), 
+                        url('images/tiles-bg-2.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 70vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            color: var(--white);
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        /* ========== Footer Styles ========== */
+        .main-footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-logo {
+            height: 50px;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links h5 {
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-links h5:after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 2px;
+            background: var(--secondary-color);
+            bottom: 0;
+            left: 0;
+        }
+
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary-color);
+            padding-left: 5px;
+        }
+
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            color: var(--white);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            margin-right: 10px;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        /* ========== Showroom Features ========== */
+        .feature-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .feature-list li {
+            margin-bottom: 1.2rem;
+            position: relative;
+            padding-left: 35px;
+        }
+
+        .feature-list i {
+            position: absolute;
+            left: 0;
+            top: 3px;
+            color: var(--secondary-color);
+            font-size: 1.2rem;
+        }
+
+        /* ========== Animations ========== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ========== Responsive Adjustments ========== */
+        @media (max-width: 1199.98px) {
+            .hero-section h1, .about-hero h1, .location-hero h1, .products-hero h1 {
+                font-size: 3.2rem;
+            }
+        }
+
+        @media (max-width: 991.98px) {
+            body {
+                padding-top: 70px;
+            }
+            
+            .hero-section h1, .about-hero h1, .location-hero h1, .products-hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .hero-section .lead, .about-hero .lead, .location-hero .lead, .products-hero .lead {
+                font-size: 1.3rem;
+            }
+            
+            .section {
+                padding: 4rem 0;
+            }
+            
+            .navbar-collapse {
+                background: rgba(44, 62, 80, 0.98);
+                padding: 20px;
+                margin-top: 15px;
+                border-radius: 8px;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            }
+            
+            .product-img {
+                height: 200px;
+            }
+        }
+
+        @media (max-width: 767.98px) {
+            .hero-section, .about-hero, .location-hero, .products-hero, .cta-section {
+                height: auto;
+                min-height: 400px;
+                background-attachment: scroll;
+                padding: 6rem 0;
+            }
+            
+            .hero-section h1, .about-hero h1, .location-hero h1, .products-hero h1 {
+                font-size: 2.4rem;
+            }
+            
+            .hero-section .lead, .about-hero .lead, .location-hero .lead, .products-hero .lead {
+                font-size: 1.1rem;
+            }
+            
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .footer-links {
+                margin-bottom: 2rem;
+            }
+
+            .location-hero {
+                min-height: 350px;
+            }
+        }
+
+        @media (max-width: 575.98px) {
+            .hero-section h1, .about-hero h1, .location-hero h1, .products-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .phone-link {
+                font-size: 0.9rem;
+            }
+            
+            .navbar-brand {
+                font-size: 1.4rem;
+            }
+            
+            .navbar-brand img {
+                height: 36px;
+            }
+            
+            .collection-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Animation -->
+    <div class="loader-wrapper">
+        <div class="loader"></div>
+        <div class="loader-content">
+            <div class="loader-text">
+                <div class="loader-brand">WELCOME</div>
+                <div class="loader-brand">JAYVEER TRADER'S</div>
+                <div class="loader-tagline"> Premium Tiles ,Granite & Marble</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Enhanced Header -->
+    <header class="main-header">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#home">
+                    <img src="images/jtlogo.png" 
+                    alt="Jayveer Trader's Logo" 
+                    class="d-inline-block align-top logo-img me-2"
+                    height="40">
+                    <div class="brand-text">
+                        <span class="brand-name">Jayveer Trader's</span>
+                        <span class="tagline">Premium Tiles,Granite & Marble</span>
+                    </div>
+                </a>
+                
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <div class="collapse navbar-collapse" id="mainNavbar">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#home">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#about">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#products">Products</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#location">Contact us </a>
+                        </li>
+                    </ul>
+                    
+                    <div class="header-cta">
+                        <a href="tel:+919876543210" class="phone-link d-none d-lg-flex">
+                            <i class="fas fa-phone-alt"></i> +91 9974605221
+                        </a>
+                        <a href="#location" class="btn btn-primary ms-lg-3">
+                            <i class="fas fa-map-marker-alt me-2"></i> Visit Showroom
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Home Section -->
+    <section id="home" class="hero-section">
+        <div class="container hero-content">
+            <h1 class="hero-main-title">Premium Tiles & Granite</h1>
+            <p class="hero-subtitle">Discover the finest collection of tiles, granite and marble for your dream spaces</p>
+            <div class="d-flex justify-content-center gap-3 mt-4 flex-wrap">
+                <a href="#products" class="btn btn-primary btn-lg hero-btn">
+                    <i class="fas fa-gem me-2"></i> Explore Collection
+                </a>
+                <a href="#location" class="btn btn-outline-light btn-lg hero-btn-outline">
+                    <i class="fas fa-map-marker-alt me-2"></i> Find Our Showroom
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Showroom Highlights -->
+    <section class="section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <h2 class="section-title text-start mb-4">Visit Our Luxurious Showroom</h2>
+                    <p class="mb-4">Experience the beauty of our premium tiles, granite and marble collections in person at our spacious showroom.</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check-circle"></i> 5000+ sq.ft display area</li>
+                        <li><i class="fas fa-check-circle"></i> Expert design consultation</li>
+                        <li><i class="fas fa-check-circle"></i> 1000+ satisfied customers</li>
+                        <li><i class="fas fa-check-circle"></i> Competitive pricing</li>
+                        <li><i class="fas fa-check-circle"></i> Quality assurance</li>
+                    </ul>
+                    <a href="#location" class="btn btn-location mt-3 px-4 py-2 visit-showroom-btn">
+                        <i class="fas fa-map-marker-alt me-2"></i> Visit Our Showroom
+                    </a>
+                </div>
+                <div class="col-lg-6">
+                    <img src="images/logo.jpg" alt="Showroom Interiors" class="img-fluid showroom-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-hero">
+        <div class="container about-hero-content">
+            <h1>About Jayveer Trader's</h1>
+            <p class="lead">Your trusted partner for premium surface solutions since 2020</p>
+        </div>
+    </section>
+
+    <!-- About Content Section -->
+    <section class="section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <h2 class="section-title text-start mb-4">Our Story</h2>
+                    <p>Jayveer Traders – From Humble Beginnings to a Trusted Name in Quality Tiles and Stones</p>
+                    <p>Founded in 2020 by Shri Juharmalji Chatraji Prajapati, Jayveer Traders was built on the strong values of trust, honesty, and quality. What began as a vision driven by hard work and dedication has today grown into a reliable name in the tiles and natural stone market.</p>
+                    <p>Currently managed by his sons Jagdishbhai Prajapati, Dilipbhai Prajapati, and Vikrambhai Prajapati, the business continues to grow with a strong focus on customer satisfaction, humble human values, and long-term relationships. The showroom offers a carefully selected range of premium tiles, granite, and marble, delivering the best quality at the most competitive prices compared to the market. With a customer-first approach and transparent dealings, Jayveer Traders has earned the trust and loyalty of clients across the region.</p>
+                    <a href="#location" class="btn btn-primary mt-3 px-4 visit-showroom-btn">
+                        <i class="fas fa-map-marker-alt me-2"></i> Visit Our Showroom
+                    </a>
+                </div>
+                <div class="col-lg-6">
+                    <img src="images/office.jpg" alt="Jayveer Trader's Showroom" class="img-fluid showroom-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Values Section -->
+    <section class="section bg-light">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center mb-5">
+                    <h2 class="section-title">Our Core Values</h2>
+                    <p><h4>The principles that guide everything we do</h4></p>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-gem"></i>
+                        </div>
+                        <h3>Quality First</h3>
+                        <p>We source only premium materials that meet our strict quality standards. Every product in our showroom undergoes rigorous inspection to ensure it meets our high expectations.</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Customer Focus</h3>
+                        <p>Your satisfaction is our top priority. We provide personalized service tailored to your specific needs, ensuring you find the perfect solution for your project.</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h3>Innovative Solutions</h3>
+                        <p>We stay updated with the latest trends and technologies in the industry, bringing you cutting-edge designs and installation techniques for modern living spaces.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-4 mb-5 mb-md-0">
+                    <div class="stat-number">4+</div>
+                    <h3>Years in Business</h3>
+                    <p>Trusted experience in the industry</p>
+                </div>
+                <div class="col-md-4 mb-5 mb-md-0">
+                    <div class="stat-number">5000+</div>
+                    <h3>Square Feet Showroom</h3>
+                    <p>Spacious display of our premium collections</p>
+                </div>
+                <div class="col-md-4">
+                    <div class="stat-number">1000+</div>
+                    <h3>Happy Clients</h3>
+                    <p>Satisfied customers across Gujarat</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="about-hero">
+        <div class="container products-hero-content">
+            <h1 class="hero-title">Our Premium Collections</h1>
+            <p class="lead">Exquisite tiles and natural stones to transform your spaces</p>
+        </div>
+    </section>
+
+    <section class="py-5">
+        <div class="container">
+            <!-- Tiles Section -->
+            <div class="mb-5">
+                <h2 class="collection-title">TILES COLLECTION</h2>
+                <div class="row">
+                    <!-- Product 1 -->
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card product-card h-100">
+                            <div class="product-img-container">
+                                <img src="images/floor_tiles.jpg" class="product-img" alt="floor Tiles">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Floor Tiles</h5>
+                                <p class="card-text">At Jayveer trader`s, we offer plenty of options for floor tiles that are a melange of aesthetics and functionality.</p>
+                                <p class="price-tag">₹150 / SQ.FT</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 2 -->
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card product-card h-100">
+                            <div class="product-img-container">
+                                <img src="images/wall_tiles.jpg" class="product-img" alt="Wall Tiles">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Wall Tiles</h5>
+                                <p class="card-text">Wall tiles are decorative and functional coverings designed to enhance the aesthetic appeal and durability of interior and exterior walls.</p>
+                                <p class="price-tag">₹220 / SQ.FT</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 3 -->
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card product-card h-100">
+                            <div class="product-img-container">
+                                <img src="images/porcelain_tiles.jpg" class="product-img" alt="porcelain_tiles">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Porcelain Tiles</h5>
+                                <p class="card-text">Porcelain tiles are high-quality, durable tiles made from fine, dense clay and fired at very high temperatures.</p>
+                                <p class="price-tag">₹180 / SQ.FT</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 4 -->
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card product-card h-100">
+                            <div class="product-img-container">
+                                <img src="images/outdoor_parking_tiles.jpg" class="product-img" alt="outdoor_parking_tiles">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Outdoor Parking Tiles</h5>
+                                <p class="card-text">Outdoor parking tiles are specially designed, durable tiles engineered to withstand heavy loads, harsh weather, and constant traffic.</p>
+                                <p class="price-tag">₹320 / SQ.FT</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 5 -->
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card product-card h-100">
+                            <div class="product-img-container">
+                                <img src="images/glazed.jpg" class="product-img" alt="glazed tiles">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Glazed Tiles</h5>
+                                <p class="card-text">Glazed tiles are ceramic or porcelain tiles coated with a glass-like layer that gives them a smooth, shiny, and vibrant appearance.</p>
+                                <p class="price-tag">₹350 / SQ.FT</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 6 -->
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card product-card h-100">
+                            <div class="product-img-container">
+                                <img src="images/porcelain_tiles.jpg" class="product-img" alt="porcelain_tiles">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Premium Porcelain Tiles</h5>
+                                <p class="card-text">Porcelain tiles are premium, high-density tiles made from fine clay and fired at extremely high temperatures. Known for their exceptional durability.</p>
+                                <p class="price-tag">₹290 / SQ.FT</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Granite Section -->
+            <div class="mb-5">
+                <h2 class="collection-title">GRANITE COLLECTION</h2>
+                <div class="row">
+                    <!-- Product 1 -->
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card product-card h-100">
+                            <div class="product-img-container">
+                                <img src="images/white_granite.jpg" class="product-img" alt="white_granite">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">White Granite</h5>
+                                <p class="card-text">White granite is a natural, elegant stone known for its pristine white background and subtle grey or black veining.</p>
+                                <p class="price-tag">₹350 / SQ.FT</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 2 -->
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card product-card h-100">
+                            <div class="product-img-container">
+                                <img src="images/Rajasthan-Black1.jpg" class="product-img" alt="Rajasthan-Black">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Rajasthan Black Granite</h5>
+                                <p class="card-text">Rajasthan Black Granite is a premium natural stone, renowned for its deep, uniform black color and sleek, polished finish.</p>
+                                <p class="price-tag">₹420 / SQ.FT</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 3 -->
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card product-card h-100">
+                            <div class="product-img-container">
+                                <img src="images/galaxy.jpeg" class="product-img" alt="galaxy Granite">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Galaxy Granite</h5>
+                                <p class="card-text">Galaxy Granite is a premium natural stone celebrated for its rich black background interspersed with shimmering golden or silver flecks</p>
+                                <p class="price-tag">₹380 / SQ.FT</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 4 -->
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card product-card h-100">
+                            <div class="product-img-container">
+                                <img src="images/lakhared.jpg" class="product-img" alt="lakhared Granite">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Lakha Red Granite</h5>
+                                <p class="card-text">Lakha Red Granite is a premium natural stone known for its rich, vibrant red color with subtle black or grey specks.</p>
+                                <p class="price-tag">₹320 / SQ.FT</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 5 -->
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card product-card h-100">
+                            <div class="product-img-container">
+                                <img src="images/alska gold.jpg" class="product-img" alt="alska gold Granite">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Alaska Gold Granite</h5>
+                                <p class="card-text">Alaska Gold Granite is a premium natural stone characterized by its warm golden-yellow base, accentuated with rich brown and black veining.</p>
+                                <p class="price-tag">₹450 / SQ.FT</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 6 -->
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card product-card h-100">
+                            <div class="product-img-container">
+                                <img src="images/pwhite.jpg" class="product-img" alt="pwhite Granite">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">P-White Granite</h5>
+                                <p class="card-text">P-White Granite is a premium natural stone known for its pristine white background with subtle grey or black specks, creating elegant patterns.</p>
+                                <p class="price-tag">₹480 / SQ.FT</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Marble Section -->
+            <div class="mb-5">
+                <h2 class="collection-title">MARBLE COLLECTION</h2>
+                <div class="row">
+                    <!-- Product 1 -->
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card product-card h-100">
+                            <div class="product-img-container">
+                                <img src="images/greenmarble.jpg" class="product-img" alt="greenmarble">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Green Marble</h5>
+                                <p class="card-text">Green Marble is a luxurious natural stone known for its rich green hues, often accentuated with intricate white, gold veining.</p>
+                                <p class="price-tag">₹450 / SQ.FT</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 2 -->
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card product-card h-100">
+                            <div class="product-img-container">
+                                <img src="images/calculta.jpg" class="product-img" alt="calculta Marble">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Calcutta Marble</h5>
+                                <p class="card-text">Calcutta Marble is a premium natural stone celebrated for its luxurious white background adorned with elegant grey and subtle gold veining.</p>
+                                <p class="price-tag">₹380 / SQ.FT</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 3 -->
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card product-card h-100">
+                            <div class="product-img-container">
+                                <img src="images/brownmarble.jpg" class="product-img" alt="brownmarble">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Brown Marble</h5>
+                                <p class="card-text">Brown Marble is a natural stone known for its rich, earthy tones ranging from deep chocolate to warm caramel.</p>
+                                <p class="price-tag">₹520 / SQ.FT</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 4 -->
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card product-card h-100">
+                            <div class="product-img-container">
+                                <img src="images/blackmarble.jpg" class="product-img" alt="blackmarble">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Black Marble</h5>
+                                <p class="card-text">Black Marble is a luxurious natural stone known for its deep, rich black color, often accentuated with elegant white, gold veins.</p>
+                                <p class="price-tag">₹580 / SQ.FT</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 5 -->
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card product-card h-100">
+                            <div class="product-img-container">
+                                <img src="images/greymarble.jpg" class="product-img" alt="greymarble">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Grey Marble</h5>
+                                <p class="card-text">Grey Marble is a sophisticated natural stone known for its elegant grey tones, often accented with subtle white, black patterns.</p>
+                                <p class="price-tag">₹650 / SQ.FT</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 6 -->
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card product-card h-100">
+                            <div class="product-img-container">
+                                <img src="images/pure white marble.jpg" class="product-img" alt="pure white marble">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Pure White Marble</h5>
+                                <p class="card-text">Pure White Marble is a premium natural stone renowned for its immaculate white background, exuding elegance, purity, and sophistication.</p>
+                                <p class="price-tag">₹600 / SQ.FT</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section id="location" class="location-hero">
+        <div class="container location-hero-content">
+            <h1>Our Showroom Location</h1>
+            <p class="lead">Visit us to experience our premium collections in person</p>
+        </div>
+    </section>
+
+    <!-- Location Content Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Find Our Showroom</h2>
+            <div class="row">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <div class="location-card" style="background-color: var(--primary-color); color: var(--white);">
+                        <h3 class="mb-4">Showroom Information</h3>
+                        
+                        <div class="info-item d-flex">
+                            <div style="font-size: 1.5rem; color: var(--secondary-color); margin-right: 1rem;">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h5>Address</h5>
+                                <p>Infront of Water Wille Near Bright Auto Glass<br>R.T.O Bypass Road<br>Himmatnagar, Gujarat - 383001</p>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item d-flex">
+                            <div style="font-size: 1.5rem; color: var(--secondary-color); margin-right: 1rem;">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <h5>Phone</h5>
+                                <p>+91 9974605221<br>+91 9426047471<br>+91 9409569495</p>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item d-flex">
+                            <div style="font-size: 1.5rem; color: var(--secondary-color); margin-right: 1rem;">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h5>Email</h5>
+                                <p>jayveertraders2024@gmail.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item d-flex">
+                            <div style="font-size: 1.5rem; color: var(--secondary-color); margin-right: 1rem;">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div>
+                                <h5>Showroom Hours</h5>
+                                <p>Monday - Saturday: 10:00 AM - 8:00 PM<br>Sunday: 11:00 AM - 6:00 PM</p>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <h5>Parking Information</h5>
+                            <p>Ample parking space available in front of our showroom. Additional parking available at the nearby parking lot.</p>
+                        </div>
+                        
+                        <div class="mt-4">
+                            <a href="https://maps.google.com/?q=Infront+of+Water+Wille+Near+Bright+Auto+Glass+R.T.O+Bypass+Road+Himmatnagar+Gujarat+383001" target="_blank" class="btn btn-primary">
+                                <i class="fas fa-directions me-2"></i> Get Directions
+                            </a>
+                            <a href="tel:+919974605221" class="btn btn-outline-light ms-2">
+                                <i class="fas fa-phone me-2"></i> Call Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="location-card">
+                        <div class="map-container">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d465.95726382245766!2d72.9442698295546!3d23.602692220963416!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1744910309518!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                        
+                        <div class="mt-4">
+                            <h4>How to Reach Us</h4>
+                            <p>Our showroom is conveniently located on R.T.O Bypass Road in Himmatnagar, with easy access from all parts of the city. Look for our prominent signage when you arrive.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="display-4 fw-bold mb-4">Ready to Transform Your Space?</h2>
+                <p class="lead mb-5">Let our premium tiles and stones bring elegance to your home or business</p>
+                <div class="d-flex justify-content-center gap-3 flex-wrap">
+                    <a href="tel:+919974605221" class="btn btn-primary btn-lg px-4">
+                        <i class="fas fa-phone-alt me-2"></i> Call Now
+                    </a>
+                    <a href="#location" class="btn btn-outline-light btn-lg px-4 visit-showroom-btn">
+                        <i class="fas fa-map-marker-alt me-2"></i> Visit Showroom
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <h5 class="mb-3">Jayveer Trader's</h5>
+                    <p>Premium tiles and natural stones to transform your spaces. Quality materials for residential and commercial projects.</p>
+                    <div class="social-links mt-4">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/919974605221" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-6 mb-5 mb-md-0">
+                    <div class="footer-links">
+                        <h5>Quick Links</h5>
+                        <ul>
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#about">About Us</a></li>
+                            <li><a href="#products">Products</a></li>
+                            <li><a href="#location">Find Showroom</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 mb-5 mb-md-0">
+                    <div class="footer-links">
+                        <h5>Products</h5>
+                        <ul>
+                            <li><a href="#products">Floor Tiles</a></li>
+                            <li><a href="#products">Wall Tiles</a></li>
+                            <li><a href="#products">Rajasthan Black Granite</a></li>
+                            <li><a href="#products">P-White Granite</a></li>
+                            <li><a href="#products">Pure White Marble</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-links">
+                        <h5>Contact Info</h5>
+                        <ul>
+                            <li><i class="fas fa-map-marker-alt me-2"></i> R.T.O Bypass Road Near bright auto glass<p>  infront of waterville , Himmatnagar </p> </li>
+                            <li><i class="fas fa-phone me-2"></i> +91 9974605221</li>
+                            <li><i class="fas fa-phone me-2"></i> +91 9426047471</li>
+                            <li><i class="fas fa-phone me-2"></i> +91 9409569495</li>
+                            <li><i class="fas fa-envelope me-2"></i> jayveertraders2024@gmail.com</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="mb-0">&copy; 2026 Jayveer Trader's. All Rights Reserved.</p>
+                <p> Developed by <b> Vishal Prajapati </b></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Notification Container -->
+    <div id="notificationContainer"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Loading animation
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                const loaderWrapper = document.querySelector('.loader-wrapper');
+                loaderWrapper.classList.add('hidden');
+                
+                setTimeout(() => {
+                    loaderWrapper.style.display = 'none';
+                }, 500);
+            }, 1000);
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.main-header');
+            if (window.scrollY > 30) {
+                header.classList.add('header-scrolled');
+            } else {
+                header.classList.remove('header-scrolled');
+            }
+        });
+
+        // Mobile menu close on click
+        document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                const bsCollapse = new bootstrap.Collapse(document.getElementById('mainNavbar'), {
+                    toggle: false
+                });
+                bsCollapse.hide();
+                
+                // Update active class
+                document.querySelectorAll('.navbar-nav .nav-link').forEach(navLink => {
+                    navLink.classList.remove('active');
+                });
+                link.classList.add('active');
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Visit Showroom button functionality
+        document.querySelectorAll('.visit-showroom-btn').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // First close mobile menu if open
+                const navbarCollapse = document.getElementById('mainNavbar');
+                if (navbarCollapse.classList.contains('show')) {
+                    new bootstrap.Collapse(navbarCollapse).toggle();
+                }
+                
+                // Update active nav link
+                document.querySelectorAll('.navbar-nav .nav-link').forEach(navLink => {
+                    navLink.classList.remove('active');
+                });
+                document.querySelector('.navbar-nav .nav-link[href="#location"]').classList.add('active');
+                
+                // Scroll to location section
+                const locationSection = document.getElementById('location');
+                if (locationSection) {
+                    window.scrollTo({
+                        top: locationSection.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Notification system
+        function showNotification(message, type = 'success') {
+            const notificationContainer = document.getElementById('notificationContainer');
+            
+            // Remove existing notifications
+            const existingNotifications = document.querySelectorAll('.notification');
+            existingNotifications.forEach(notification => {
+                notification.remove();
+            });
+            
+            // Create new notification
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            notification.innerHTML = `
+                <div class="d-flex align-items-center">
+                    <i class="fas ${type === 'success' ? 'fa-check-circle' : type === 'error' ? 'fa-exclamation-circle' : type === 'warning' ? 'fa-exclamation-triangle' : 'fa-info-circle'} me-3"></i>
+                    <div>${message}</div>
+                    <button type="button" class="btn-close btn-close-white ms-3" onclick="this.parentElement.parentElement.remove()" aria-label="Close"></button>
+                </div>
+            `;
+            
+            notificationContainer.appendChild(notification);
+            
+            // Show notification
+            setTimeout(() => {
+                notification.classList.add('show');
+            }, 10);
+            
+            // Auto remove after 5 seconds
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.classList.remove('show');
+                    setTimeout(() => {
+                        if (notification.parentNode) {
+                            notification.remove();
+                        }
+                    }, 300);
+                }
+            }, 5000);
+        }
+
+        // Animation for elements on scroll
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.product-card, .value-card, .location-card, .team-member, .showroom-img');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.2;
+                
+                if (elementPosition < screenPosition) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+
+        // Set initial state for animated elements
+        document.querySelectorAll('.product-card, .value-card, .location-card, .team-member, .showroom-img').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+        });
+
+        // Run on load and scroll
+        window.addEventListener('load', animateOnScroll);
+        window.addEventListener('scroll', animateOnScroll);
+        
+        // Initialize notification container
+        window.addEventListener('load', function() {
+            if (!document.getElementById('notificationContainer')) {
+                const container = document.createElement('div');
+                container.id = 'notificationContainer';
+                document.body.appendChild(container);
+            }
+        });
+
+        // Initialize active nav link based on scroll position
+        function updateActiveNavLink() {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', updateActiveNavLink);
+    </script>
+</body>
+</html>
